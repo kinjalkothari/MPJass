@@ -1,0 +1,96 @@
+import java.util.Scanner;
+
+public class NumberStarPattern {
+
+    static String[][] digits = {
+
+        {
+            " *** ",
+            "*   *",
+            "*   *",
+            "*   *",
+            " *** "
+        },
+        {
+            "  *  ",
+            " **  ",
+            "  *  ",
+            "  *  ",
+            " *** "
+        },
+        {
+            " *** ",
+            "    *",
+            " *** ",
+            "*    ",
+            " *** "
+        },
+        {
+            " *** ",
+            "    *",
+            " *** ",
+            "    *",
+            " *** "
+        },
+        {
+            "*   *",
+            "*   *",
+            "*****",
+            "    *",
+            "    *"
+        },
+        {
+            "*****",
+            "*    ",
+            "**** ",
+            "    *",
+            "**** "
+        },
+        {
+            " ****",
+            "*    ",
+            "**** ",
+            "*   *",
+            " ****"
+        },
+        {
+            "*****",
+            "    *",
+            "   * ",
+            "  *  ",
+            " *   "
+        },
+        {
+            " *** ",
+            "*   *",
+            " *** ",
+            "*   *",
+            " *** "
+        },
+        {
+            " ****",
+            "*   *",
+            " ****",
+            "    *",
+            " ****"
+        }
+    };
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a single digit (0-9): ");
+        String input = sc.next();
+
+        if (input.length() == 1 && Character.isDigit(input.charAt(0))) {
+            int num = input.charAt(0) - '0';
+            for (int i = 0; i < 5; i++) {
+                System.out.println(digits[num][i]);
+            }
+        } else {
+            System.out.println("Invalid input. Enter only one digit (0-9).");
+        }
+
+        sc.close();
+    }
+}
