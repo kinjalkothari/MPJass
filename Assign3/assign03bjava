@@ -1,0 +1,68 @@
+class Hillstations {
+
+    void famousfood() {
+        System.out.println("Hillstation food");
+    }
+
+    void famousfor() {
+        System.out.println("Hillstation is famous for");
+    }
+}
+
+class Manali extends Hillstations {
+
+    @Override
+    void famousfood() {
+        System.out.println("Manali famous food: Siddu");
+    }
+
+    @Override
+    void famousfor() {
+        System.out.println("Manali is famous for snow and mountains");
+    }
+}
+
+class Ooty extends Hillstations {
+
+    @Override
+    void famousfood() {
+        System.out.println("Ooty famous food: Chocolates");
+    }
+
+    @Override
+    void famousfor() {
+        System.out.println("Ooty is famous for tea gardens");
+    }
+}
+
+class Mahabaleshwar extends Hillstations {
+
+    @Override
+    void famousfood() {
+        System.out.println("Mahabaleshwar famous food: Strawberries");
+    }
+
+    @Override
+    void famousfor() {
+        System.out.println("Mahabaleshwar is famous for scenic views");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Hillstations h;
+
+        h = new Manali();
+        h.famousfood();
+        h.famousfor();
+
+        h = new Ooty();
+        h.famousfood();
+        h.famousfor();
+
+        h = new Mahabaleshwar();
+        h.famousfood();
+        h.famousfor();
+    }
+}
