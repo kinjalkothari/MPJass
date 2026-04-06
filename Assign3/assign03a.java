@@ -1,51 +1,81 @@
+import java.util.Scanner;
+
 class Shapes {
-    double length, breadth;
-    double radius;
-    double base, height;
-
-    // Constructor for Rectangle
-    Shapes(double l, double b) {
-        length = l;
-        breadth = b;
-    }
-
-    // Constructor for Circle
-    Shapes(double r) {
-        radius = r;
-    }
-
-    // Constructor for Triangle
-    Shapes(double b, double h, boolean isTriangle) {
-        base = b;
-        height = h;
-    }
 
     // Method Overloading
 
     // Rectangle
-    double area(double l, double b) {
-        return l * b;
+    double area(double length, double breadth) {
+        return length * breadth;
     }
 
     // Circle
-    double area(double r) {
-        return 3.14 * r * r;
+    double area(double radius) {
+        return Math.PI * radius * radius;
     }
 
-    // Triangle (different signature using 3 parameters)
-    double area(double b, double h, int triangleFlag) {
-        return 0.5 * b * h;
+    // Triangle (different type to avoid conflict)
+    double area(float base, float height) {
+        return 0.5 * base * height;
     }
+}
 
+public class Main {
     public static void main(String[] args) {
 
-        Shapes rect = new Shapes(5, 4);
-        System.out.println("Area of Rectangle = " + rect.area(rect.length, rect.breadth));
+        Scanner sc = new Scanner(System.in);
+        Shapes s = new Shapes();
 
-        Shapes circle = new Shapes(3);
-        System.out.println("Area of Circle = " + circle.area(circle.radius));
+        int choice;
 
-        Shapes triangle = new Shapes(6, 2, true);
-        System.out.println("Area of Triangle = " + triangle.area(triangle.base, triangle.height, 1));
+        do {
+            System.out.println("\n--- Shape Area Calculator ---");
+            System.out.println("1. Rectangle");
+            System.out.println("2. Circle");
+            System.out.println("3. Triangle");
+            System.out.println("4. Exit");
+            System.out.print("Enter choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+
+                case 1:
+                    System.out.print("Enter length: ");
+                    double l = sc.nextDouble();
+
+                    System.out.print("Enter breadth: ");
+                    double b = sc.nextDouble();
+
+                    System.out.println("Area of Rectangle = " + s.area(l, b));
+                    break;
+
+                case 2:
+                    System.out.print("Enter radius: ");
+                    double r = sc.nextDouble();
+
+                    System.out.println("Area of Circle = " + s.area(r));
+                    break;
+
+                case 3:
+                    System.out.print("Enter base: ");
+                    float base = sc.nextFloat();
+
+                    System.out.print("Enter height: ");
+                    float height = sc.nextFloat();
+
+                    System.out.println("Area of Triangle = " + s.area(base, height));
+                    break;
+
+                case 4:
+                    System.out.println("Exiting...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice!");
+            }
+
+        } while (choice != 4);
+
+        sc.close();
     }
 }
